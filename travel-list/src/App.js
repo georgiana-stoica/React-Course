@@ -1,3 +1,5 @@
+import {useState} from "react";
+
 const initialItems = [
     {id: 1, description: "Passports", quantity: 2, packed: true},
     {id: 2, description: "Socks", quantity: 12, packed: true},
@@ -20,6 +22,8 @@ function Logo() {
 }
 
 function Form() {
+    const [description, setDescription] = useState("");
+
     function handleSubmit(e) {
         e.preventDefault(); //  to prevent the default browser actions hence we can use it to prevent the default action in event callbacks (like browser refresh)
         console.log(e);
@@ -31,7 +35,7 @@ function Form() {
             {Array.from({length: 20}, (_, i) => i + 1).map((num) =>(<option value={num} key={num}>{num}</option>))}
         </select>
         <form>
-            <input type="text" placeholder="Item..."/>
+            <input type="text" placeholder="Item..." value={description}/>
         </form>
         <button>ADD</button>
     </div>
