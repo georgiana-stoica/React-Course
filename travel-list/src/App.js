@@ -7,11 +7,17 @@ const initialItems = [
 ];
 
 export default function App() {
+    const [items, setItems] = useState([]);
+
+    function handleAddItems(item) {
+        setItems((items) => [...items, item]);
+    }
+
     return (
         <div className="app">
             <Logo/>
-            <Form/>
-            <PackingList/>
+            <Form onAddItems={handleAddItems}/>
+            <PackingList items={items}/>
             <Stats/>
         </div>
     );
@@ -21,31 +27,44 @@ function Logo() {
     return <h1>🌴 Far Away 💼</h1>
 }
 
-function Form() {
+function Form({onAddItems}) {
     const [description, setDescription] = useState("");
+
+    const [quantity, setQuantity] = useState(1);
 
     function handleSubmit(e) {
         e.preventDefault(); //  to prevent the default browser actions hence we can use it to prevent the default action in event callbacks (like browser refresh)
-        console.log(e);
+
+        if (!description)
+            return;
+        const newItem = {description: description, quantity: quantity, packed: false, id: Date.now()};
+        console.log(newItem);
+
+        onAddItems(newItem)
+
+        setQuantity(1);
+        setDescription("");
     }
 
     return <div className="add-form" onSubmit={handleSubmit}>
         <h3>What do you need for your 😍 trip?</h3>
-        <select>
-            {Array.from({length: 20}, (_, i) => i + 1).map((num) =>(<option value={num} key={num}>{num}</option>))}
+        <select value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}>
+            {Array.from({length: 20}, (_, i) => i + 1).map((num) => (<option value={num} key={num}>{num}</option>))}
         </select>
         <form>
-            <input type="text" placeholder="Item..." value={description}/>
+            <input type="text" placeholder="Item..." value={description} onChange={(e) => {
+                setDescription(e.target.value)
+            }}/>
         </form>
         <button>ADD</button>
     </div>
 }
 
-function PackingList() {
+function PackingList({items}) {
 
     return (<div className="list">
         <ul>
-            {initialItems.map(item => <Item item={item} key={item.id}/>)}
+            {items.map(item => <Item item={item} key={item.id}/>)}
         </ul>
     </div>);
 }
