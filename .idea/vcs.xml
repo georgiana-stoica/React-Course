@@ -2,6 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+<<<<<<< HEAD
+=======
     <mapping directory="$PROJECT_DIR$/datecounter" vcs="Git" />
+>>>>>>> 1b2e5ba8120206a3268d9ef4031f381b4512d0a3
   </component>
 </project>
