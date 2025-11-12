@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "imdb-clone",
-=======
-  "name": "imdb_clone",
->>>>>>> 1b2e5ba8120206a3268d9ef4031f381b4512d0a3
+  "name": "calculator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import logo from './logo.svg';
 import './App.css';
 
@@ -18,6 +19,12 @@ function App() {
           Learn React
         </a>
       </header>
+=======
+function App() {
+  return (
+    <div>
+      Hello
+>>>>>>> 1b2e5ba8120206a3268d9ef4031f381b4512d0a3
     </div>
   );
 }

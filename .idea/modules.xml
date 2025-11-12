@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/imdb-clone.iml" filepath="$PROJECT_DIR$/.idea/imdb-clone.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/react-course.iml" filepath="$PROJECT_DIR$/.idea/react-course.iml" />
+>>>>>>> 1b2e5ba8120206a3268d9ef4031f381b4512d0a3
     </modules>
   </component>
 </project>
